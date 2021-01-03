@@ -1,0 +1,41 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container">
+  <div>
+    <br>
+    <h1 class="display-2">Register New Customer</h1>
+    <br>
+  </div>
+  <div>
+    <form action="/customers/register" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="identityNumber">ID Number:</label>
+        <input class="form-control" type="text" id="identityNumber" name="identityNumber" placeholder="6471021106900001"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="fullName">Full Name:</label>
+        <input class="form-control" type="text" id="fullName" name="fullName" placeholder="Ronny Arief "/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="address">Address:</label>
+        <input class="form-control" type="text" id="address" name="address" placeholder="Tangerang"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="birthDate">Birth Date:</label>
+        <input class="form-control" type="date" id="birthDate" name="birthDate" value="2000-01-01"/>
+      </div>
+      <div>
+        <label for="">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+      </div>
+      <div>
+        <br>
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer') %> 

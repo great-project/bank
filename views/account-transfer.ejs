@@ -1,0 +1,32 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container" >
+    <div>
+      <br>
+      <h1 class="display-5">ACCOUNT TRANSFER</h1>
+      <br>
+      <p>Transfer From: <strong> <%= data.accountNumber %> <%= data.type %> <%= data.formattedBalance() %> </strong> </p>
+    </div>
+    <form action="/customers/<%= data.CustomerId %>/accounts/<%= data.id %>/transfer" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="amount">Amount:</label>
+        <input class="form-control" type="text" id="amount" name="amount" placeholder="0"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="transferToAccountId">Transfer To:</label>
+        <select class="form-select" name="transferToAccountId" id="transferToAccountId">
+          <option selected>--SELECT--</option>
+          <% dataAccount.forEach(el => { %> 
+          <option value="<%= el.id %>"><%= el.accountNumber %> - <%= el.Customer.fullName %></option>
+          <% }); %>
+        </select>
+      </div>
+      <div>
+        <br>
+        <button class="btn btn-primary" type="submit">Transfer</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+<%- include('partials/footer') %> 

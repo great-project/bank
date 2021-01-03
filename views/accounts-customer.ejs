@@ -1,0 +1,63 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container" >
+  <div class="d-inline-flex" style="width: 100%;">
+  <div class="col-6">
+    <div>
+      <br>
+      <h1 class="display-5">Good day, <%= dataCustomer.fullName %> </h1>
+      <br>
+    </div>
+    <div>
+      <table class="table table-hover">
+        <thead>
+          <th scope="col">Account Number</th>
+          <th scope="col">Type</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Action</th>
+        </thead>
+        <tbody>
+          <% data.forEach(el => { %>
+            <tr>
+              <td><%= el.accountNumber %> </td>
+              <td><%= el.type %> </td> 
+              <td><%= el.formattedBalance() %> </td> 
+              <td>
+                <button class="btn btn-success"><a href="/customers/<%= dataCustomer.id %>/accounts/<%= el.id %> ">Transfer</a></button>
+              </td>
+            </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-1"></div>
+  <div class="col-5">
+    <div>
+      <br>
+      <h1 class="display-5">ADD ACCOUNT</h1>
+      <br>
+    </div>
+    <form action="/customers/<%= dataCustomer.id %>/accounts" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="type">Account Type:</label>
+        <select class="form-select" name="type" id="type">
+          <option selected>--SELECT--</option>
+          <option value="On Account">On Account</option>
+          <option value="Xtra Payroll">Xtra Payroll</option>
+          <option value="Tabunganku">Tabunganku</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="balance">Balance:</label>
+        <input class="form-control" type="text" id="balance" name="balance" placeholder="0"/>
+      </div>
+      <div>
+        <br>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+<%- include('partials/footer') %> 

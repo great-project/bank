@@ -1,0 +1,52 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container">
+  <div>
+    <br>
+    <h1 class="display-2">Movie Edit</h1>
+    <br>
+  </div>
+  <div>
+    <form action="/movies/<%= dataMovie.id %>/edit" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-control" type="text" id="name" name="name" value="<%= dataMovie.name %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="released_year">Released Year</label>
+        <input class="form-control" type="text" id="released_year" name="released_year" value="<%= dataMovie.released_year %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="rating">Rating</label>
+        <input class="form-control" type="number" id="rating" name="rating" value="<%= dataMovie.rating %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="genre">Genre</label>
+        <select class="form-select" name="genre" id="genre">
+          <option selected>--SELECT--</option>
+          <option value="animation" <%= dataMovie.genre ==='animation' ? 'selected' : '' %> >animation</option>
+          <option value="comedy" <%= dataMovie.genre ==='comedy' ? 'selected' : '' %> >comedy</option>
+          <option value="drama"<%= dataMovie.genre ==='drama' ? 'selected' : '' %> >drama</option>
+          <option value="horor" <%= dataMovie.genre ==='horor' ? 'selected' : '' %> >horor</option>
+          <option value="religious" <%= dataMovie.genre ==='religious' ? 'selected' : '' %> >religious</option>
+          <option value="thriller" <%= dataMovie.genre ==='thriller' ? 'selected' : '' %> >thriller</option>
+        </select>
+      </div>
+      <div>
+        <label for="ProdHouseId">Production Houses</label>
+        <select class="form-select" name="ProdHouseId" id="ProdHouseId">
+          <option value="" <%= dataMovie.ProdHouseId == null? 'selected' : '' %> disable>-- SELECT--</option>
+          <% dataPh.forEach(el => { %>
+            <option value="<%= el.id %>"<%= el.id === dataMovie.ProdHouseId ? 'selected' : '' %>><%= el.name_prodHouse %> </option>
+            <% }) %> 
+          </select>
+      </div>
+      <div>
+        <br>
+        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-danger"><a href="/movies">Cancel</a></button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer') %> 

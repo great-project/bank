@@ -1,0 +1,44 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container">
+  <div>
+    <br>
+    <h1 class="display-2">Edit Customer Profile</h1>
+    <br>
+  </div>
+  <div>
+    <%# data.forEach(el => { %>
+    <form action="/customers/<%= data.id %>/editProfile" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="identityNumber">ID Number:</label>
+        <input class="form-control" type="text" id="identityNumber" name="identityNumber" value="<%= data.identityNumber %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="fullName">Full Name:</label>
+        <input class="form-control" type="text" id="fullName" name="fullName" value="<%= data.fullName %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="address">Address:</label>
+        <input class="form-control" type="text" id="address" name="address" value="<%= data.address %>"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="birthDate">Birth Date:</label>
+        <input class="form-control" type="date" id="birthDate" value="<%= `${data.birthDate.toISOString().split('T')[0]}` %>" />
+      </div>
+      <div>
+        <label for="">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male" <%= data.gender == 'male'? 'checked':'' %>/>
+        <label class="form-label" for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" <%= data.gender == 'female'? 'checked':'' %>/>
+        <label class="form-label" for="female">Female</label>
+      </div>
+
+      <div>
+        <br>
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </form>
+    <%# }) %>
+  </div>
+</div>
+<%- include('partials/footer') %> 

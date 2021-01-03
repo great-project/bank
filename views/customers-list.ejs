@@ -1,0 +1,32 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+<div class="container">
+  <div>
+    <br>
+    <h1 class="display-2">WELCOME TO HACKTIV8 BANK</h1>
+    <br>
+  </div>
+  <div>
+    <button class="btn btn-info"><a href="/customers/register">Register(New Customer)</a></button>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col">Identity Number</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Action</th>
+      </thead>
+      <tbody>
+        <% data.forEach(el => { %>
+          <tr>
+            <td><%= el.identityNumber %> </td>
+            <td><%= el.fullName %> </td> 
+            <td>
+              <button class="btn btn-success"><a href="/customers/<%= el.id %>/accounts">View Account</a></button>
+              <button class="btn btn-danger"><a href="/customers/<%= el.id %>/editProfile">Edit Profile</a></button>
+            </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include('partials/footer') %> 

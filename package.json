@@ -1,0 +1,31 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "Kamu akan membuat aplikasi system bank sederhana menggunakan Express dan Sequelize. Baca tiap specification dengan baik, ikuti apa yang diminta.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/great-project/bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/great-project/bank/issues"
+  },
+  "homepage": "https://github.com/great-project/bank#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
+  }
+}
